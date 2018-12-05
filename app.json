@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Incudu",
-    "slug": "Incudu",
+    "name": "Incudu-app",
+    "slug": "Incudu-app",
     "privacy": "public",
     "sdkVersion": "31.0.0",
     "platforms": [
