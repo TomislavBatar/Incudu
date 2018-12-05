@@ -5,7 +5,7 @@ import colors from '../../constants/Colors';
 
 export default class RoundedButton extends Component {
     constructor(props) {
-        super(props);
+        super(props); 
         this.state = {
         };
     }
@@ -40,6 +40,8 @@ const styles = StyleSheet.create({
         borderRadius: 40,
         borderWidth: 1,
         borderColor: colors.white,
+        marginBottom: 15,
+        alignItems: 'center',
 
     },
     buttonTextWrapper: {
