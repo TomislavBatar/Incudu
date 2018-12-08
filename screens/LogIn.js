@@ -19,7 +19,9 @@ export default class LogIn extends Component {
 
     render() {
         return (
-            <KeyboardAvoidingView style={styles.wrapper}>
+            <KeyboardAvoidingView style={styles.wrapper}
+                behavior="padding"
+            >
                 <View style={styles.ScrollViewWrapper}>
                     <ScrollView style={styles.ScrollView}>
                         <Text style={styles.loginHrader}>Log In</Text>
@@ -63,7 +65,7 @@ const styles = StyleSheet.create({
     ScrollViewWrapper: {
         marginTop: 70,
         flex: 1,
-    },
+    }, 
     loginHrader: {
         fontSize: 35,
         color: colors.white,
