@@ -109,24 +109,24 @@ const styles = StyleSheet.create({
 	},
 	moreOptionsButton: {
 		marginTop: 15,
-	},	
-	moreOptionsButtonText :{
+	},
+	moreOptionsButtonText: {
 		color: colors.white,
 		fontSize: 16,
 	},
-	termsAndConditions:{
+	termsAndConditions: {
 		flexWrap: 'wrap',
 		alignItems: 'flex-start',
 		flexDirection: 'row',
 		marginTop: 30,
 	},
-	termsText:{
+	termsText: {
 		color: colors.white,
 		fontSize: 12,
 		fontWeight: '400',
 	},
-	linkButton:{
-		borderBottomWidth:1,
+	linkButton: {
+		borderBottomWidth: 1,
 		borderBottomColor: colors.white,
 	},
 });

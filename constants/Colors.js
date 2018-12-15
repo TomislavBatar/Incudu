@@ -4,15 +4,17 @@ export default {
   tintColor,
   tabIconDefault: '#ccc',
   tabBar: '#fefefe',
-  errorBackground: 'red',
   errorText: '#fff',
   warningBackground: '#EAEB5E',
   warningText: '#666804',
   noticeBackground: tintColor,
   noticeText: '#fff',
   
-  // My coors  
+  // My colrs  
   white:'#fff',
   tabIconSelected: tintColor,
   black:'#000',
+  error: 'red',
+  lightGray: '#d8d8d8',
+
 };
