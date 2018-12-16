@@ -9,7 +9,7 @@ export default class Notification extends Component {
 	{
 		super(props);
 		this.state = {
-			positionValue: new Animated.Value(60),
+			positionValue: new Animated.Value(-60),
 		};
 		this.closeNotification = this.closeNotification.bind(this);
 		this.animateNotification = this.animateNotification.bind(this);
@@ -21,7 +21,7 @@ export default class Notification extends Component {
 			positionValue,
 			{
 				toValue: value,
-				duration: 400,
+				duration: 300,
 				velocity: 3,
 				tension: 2,
 				friction: 8,
@@ -35,9 +35,9 @@ export default class Notification extends Component {
 	render() {
 		const { type, firstLine, secondLine, showNotification } = this.props;
 		const { positionValue } = this.state;
-		showNotification ? this.animateNotification(0) : this.animateNotification(60);
+		showNotification ? this.animateNotification(0) : this.animateNotification(-60);
 		return (
-			<Animated.View style={[{transform: [{translateY: positionValue }]}, styles.wrapper]}>
+			<Animated.View style={[{marginBottom: positionValue }, styles.wrapper]}>
 				<View style={styles.notificationContent}>
 					<Text style={styles.errorText}> {type} </Text>
 					<Text style={styles.errorMessage}> {firstLine} </Text>
@@ -56,7 +56,7 @@ export default class Notification extends Component {
 			</Animated.View>
 		);
 	}
-}
+} 
 
 Notification.propTypes = {
 	showNotification: PropTypes.bool.isRequired,

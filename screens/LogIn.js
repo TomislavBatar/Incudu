@@ -6,6 +6,7 @@ import { View, Text, ScrollView, StyleSheet, KeyboardAvoidingView } from 'react-
 import InputField from '../components/form/InputField';
 import NextArrowButton from '../components/buttons/NextArrowButton';
 import Notification from '../components/Notification';
+import Loader from '../components/Loader';
 
 export default class LogIn extends Component {
     constructor(props) {
@@ -15,6 +16,7 @@ export default class LogIn extends Component {
             validEmail: false,
             emailAdress: '',
             validPassword: false,
+            loadingVisible: false,
 
 
         };
@@ -27,12 +29,15 @@ export default class LogIn extends Component {
     }
 
     handleNextButton() {
-        if (this.state.emailAdress === 'Tomo@gmail.com' && this.state.validPassword) {
-            alert('Success')
-            this.setState({ formValid: true });
-        } else{
-            this.setState({ formValid: false});
-        }
+        this.setState({ loadingVisible: true });
+        setTimeout(() => {
+            if (this.state.emailAdress === 'Tomo@gmail.com' && this.state.validPassword) {
+                this.setState({ formValid: true, loadingVisible: false });
+                alert('Success')
+            } else{
+                this.setState({ formValid: false, loadingVisible: false });
+            }
+        }, 4000);
     };
     handleCloseNotification() {
        this.setState({ formValid : true }); 
@@ -71,9 +76,9 @@ export default class LogIn extends Component {
         return true;
 
     };
-
+ 
     render() {
-        const { formValid } = this.state;
+        const { formValid, loadingVisible } = this.state;
         const showNotification = formValid ? false : true;
         const notificationMarginTop = showNotification ? 10 : 0;
         return (
@@ -121,6 +126,10 @@ export default class LogIn extends Component {
                         />
                     </View>
                 </View>
+                <Loader
+                    modalVisible={loadingVisible}
+                    animationType="fade"
+                />
             </KeyboardAvoidingView>
         );
     }
@@ -156,6 +165,5 @@ const styles = StyleSheet.create({
     notificationWrapper: {
         position: 'absolute',
         bottom: 0,
-        // zIndex: 999,
     },
 });

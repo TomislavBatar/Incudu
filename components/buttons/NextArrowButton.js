@@ -33,7 +33,7 @@ export default class NextArrowButton extends Component {
 }
 
 NextArrowButton.propTypes = {
-  disabled: PropTypes.bool,
+  disabled: PropTypes.bool, 
   handleNextButton: PropTypes.func,
 };
 
