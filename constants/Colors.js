@@ -16,5 +16,6 @@ export default {
   black:'#000',
   error: 'red',
   lightGray: '#d8d8d8',
+  loaderColor: '#0795c3',
 
 };

@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   loaderContainer: {
     width: 90,
     height: 90,
-    backgroundColor: '#0795c3',
+    backgroundColor: colors.loaderColor,
     borderRadius: 15,
     position: 'absolute',
     left: '50%',

@@ -14,19 +14,28 @@ export default class LogIn extends Component {
         this.state = {
             formValid: true,
             validEmail: false,
-            emailAdress: '',
+            emailAddress: '',
+            password: '',
             validPassword: false,
             loadingVisible: false,
-
-
         };
+
         this.handleCloseNotification = this.handleCloseNotification.bind(this);
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handleNextButton = this.handleNextButton.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.toggleNextButtonState = this.toggleNextButtonState.bind(this);
-
     }
+
+
+    handleNextButton() {
+        if (this.state.emailAdress === 'Tomo@gmail.com' && this.state.validPassword) {
+            alert('Success')
+            this.setState({ formValid: true });
+        } else {
+            this.setState({ formValid: false });
+        }
+    };
 
     handleNextButton() {
         this.setState({ loadingVisible: true });
@@ -34,29 +43,43 @@ export default class LogIn extends Component {
             if (this.state.emailAdress === 'Tomo@gmail.com' && this.state.validPassword) {
                 this.setState({ formValid: true, loadingVisible: false });
                 alert('Success')
-            } else{
+            } else {
                 this.setState({ formValid: false, loadingVisible: false });
             }
         }, 4000);
     };
+
+
     handleCloseNotification() {
-       this.setState({ formValid : true }); 
+        this.setState({ formValid: true });
     };
+
+
+
+
+
+    // change on handleEmailChange function
 
     handleEmailChange(email) {
         const emailCheckRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        this.setState({emailAdress: email});
+        this.setState({ emailAdress: email });
 
         if (!this.state.validEmail) {
             if (emailCheckRegex.test(email)) {
                 this.setState({ validEmail: true });
-            } else{
-                if (!emailCheckRegex.test(email)) {
-                    this.setState({ validEmail: false });
-                }
             }
+        } else if (!emailCheckRegex.test(email)) {
+            this.setState({ validEmail: false });
         }
+
     };
+
+
+
+
+
+
+
     handlePasswordChange(password) {
         if (!this.state.validPassword) {
             if (password.length > 4) {
@@ -64,21 +87,20 @@ export default class LogIn extends Component {
             }
         } else if (password <= 4) {
             this.setState({ validPassword: false });
-        }  
+        }
     };
-    toggleNextButtonState(){
-        const { validEmail, validPassword} = this.state;
+    toggleNextButtonState() {
+        const { validEmail, validPassword } = this.state;
         if (validEmail && validPassword) {
             return false;
-        } 
+        }
         //  else if (validEmail || validPassword) {
         //    return false ;} 
         return true;
 
     };
- 
     render() {
-        const { formValid, loadingVisible } = this.state;
+        const { formValid, loadingVisible, validEmail, validPassword } = this.state;
         const showNotification = formValid ? false : true;
         const notificationMarginTop = showNotification ? 10 : 0;
         return (
@@ -90,15 +112,19 @@ export default class LogIn extends Component {
                         <Text style={styles.loginHrader}>Log In</Text>
 
                         <InputField
-                            labelText="EMAIL ADRESS"
+                            labelText="EMAIL ADDRESS"
                             labelTextSize={14}
                             labelColor={colors.white}
                             textColor={colors.white}
                             borderBottomColor={colors.white}
                             inputType="email"
                             customStyle={{ marginBottom: 30 }}
-                            onChangeText = {this.handleEmailChange}
+                            onChangeText={this.handleEmailChange}
+                            showCheckmark={validEmail}
+                            autoFocus={true}
+
                         />
+
                         <InputField
                             labelText="PASSWORD"
                             labelTextSize={14}
@@ -108,6 +134,7 @@ export default class LogIn extends Component {
                             inputType="password"
                             customStyle={{ marginBottom: 30 }}
                             onChangeText={this.handlePasswordChange}
+                            showCheckmark={validPassword}
                         />
                     </ScrollView>
                     <View style={styles.nextButton}>
@@ -115,8 +142,8 @@ export default class LogIn extends Component {
                             handleNextButton={this.handleNextButton}
                             disabled={this.toggleNextButtonState()}
                         />
-                    </View> 
-                    <View style={[styles.notificationWrapper, {marginTop: notificationMarginTop}]}>
+                    </View>
+                    <View style={[styles.notificationWrapper, { marginTop: notificationMarginTop }]}>
                         <Notification
                             showNotification={showNotification}
                             handleCloseNotification={this.handleCloseNotification}
@@ -144,7 +171,7 @@ const styles = StyleSheet.create({
     ScrollViewWrapper: {
         marginTop: 70,
         flex: 1,
-    }, 
+    },
     loginHrader: {
         fontSize: 35,
         color: colors.white,
