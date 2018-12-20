@@ -29,7 +29,7 @@ export default class LogIn extends Component {
 
 
     handleNextButton() {
-        if (this.state.emailAdress === 'Tomo@gmail.com' && this.state.validPassword) {
+        if (this.state.emailAddress === 'Tomo@gmail.com' && this.state.validPassword) {
             alert('Success')
             this.setState({ formValid: true });
         } else {
@@ -40,7 +40,7 @@ export default class LogIn extends Component {
     handleNextButton() {
         this.setState({ loadingVisible: true });
         setTimeout(() => {
-            if (this.state.emailAdress === 'Tomo@gmail.com' && this.state.validPassword) {
+            if (this.state.emailAddress === 'Tomo@gmail.com' && this.state.validPassword) {
                 this.setState({ formValid: true, loadingVisible: false });
                 alert('Success')
             } else {
@@ -62,13 +62,13 @@ export default class LogIn extends Component {
 
     handleEmailChange(email) {
         const emailCheckRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        this.setState({ emailAdress: email });
+        this.setState({ emailAddress: email });
 
         if (!this.state.validEmail) {
             if (emailCheckRegex.test(email)) {
                 this.setState({ validEmail: true });
             }
-        } else if (!emailCheckRegex.test(email)) {
+        } else if (!emailCheckRegex.test(email)) { 
             this.setState({ validEmail: false });
         }
 

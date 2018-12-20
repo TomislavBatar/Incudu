@@ -1,4 +1,6 @@
-# Incudu app
- ![loggedoutscreen](https://user-images.githubusercontent.com/41441996/49687110-a3b53880-fafe-11e8-8044-f750ee576fae.jpg)
-![loginscreen](https://user-images.githubusercontent.com/41441996/49689552-04566c80-fb23-11e8-8a69-f15ad8a9e307.jpg)
-![notificationlogin](https://user-images.githubusercontent.com/41441996/50043814-08cada00-007b-11e9-9761-a879a80a7be7.jpg)
+![loggedoutscreen](https://user-images.githubusercontent.com/41441996/50059671-38b4d300-018a-11e9-83fe-d35216a7e9a7.jpg)
+![loginscreen](https://user-images.githubusercontent.com/41441996/50059672-394d6980-018a-11e9-8f27-29144ab7353e.jpg)
+![notificationlogin](https://user-images.githubusercontent.com/41441996/50059673-394d6980-018a-11e9-80f2-bb7188ce27e2.jpg)
+![loader](https://user-images.githubusercontent.com/41441996/50059674-394d6980-018a-11e9-8381-470773dc313f.jpg)
+![checkmark](https://user-images.githubusercontent.com/41441996/50169203-61a1a900-02ed-11e9-88a8-02981af8ec4a.jpg)
+![forgotpassword](https://user-images.githubusercontent.com/41441996/50307603-2f34af00-0499-11e9-9b64-d214f8e63186.jpg)
