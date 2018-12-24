@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableHighlight, StyleSheet, Text } from 'react-native';
+import { TouchableHighlight, StyleSheet, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 import colors from '../../constants/Colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -16,39 +16,45 @@ export default class NextArrowButton extends Component {
     const { disabled, handleNextButton } = this.props;
     const opacityStyle = disabled ? 0.4 : 0.8;
     return (
-      <TouchableHighlight
-        style={[{opacity: opacityStyle}, styles.button]}
-        onPress={handleNextButton}
-        disabled={disabled}
-      >
-          <Icon 
+      <View style={styles.buttonWrapper}>
+        <TouchableHighlight
+          style={[{ opacity: opacityStyle }, styles.button]}
+          onPress={handleNextButton}
+          disabled={disabled}
+        >
+          <Icon
             name="angle-right"
             color={colors.tintColor}
             size={32}
             style={styles.icon}
           />
-      </TouchableHighlight>
+        </TouchableHighlight>
+      </View>
     );
   }
 }
 
 NextArrowButton.propTypes = {
-  disabled: PropTypes.bool, 
+  disabled: PropTypes.bool,
   handleNextButton: PropTypes.func,
 };
 
 const styles = StyleSheet.create({
-    
-    button:{
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 50,
-        height: 60,
-        width: 60,
-        backgroundColor: colors.white,
-    },
-    icon:{ 
-        marginRight: -2,
-        marginTop: -2,
-    },
+  buttonWrapper: {
+    right: 20,
+    bottom: 20,
+    alignItems: 'flex-end',
+  },
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+    height: 60,
+    width: 60,
+    backgroundColor: colors.white,
+  },
+  icon: {
+    marginRight: -2,
+    marginTop: -2,
+  },
 });

@@ -68,7 +68,7 @@ export default class LogIn extends Component {
             if (emailCheckRegex.test(email)) {
                 this.setState({ validEmail: true });
             }
-        } else if (!emailCheckRegex.test(email)) { 
+        } else if (!emailCheckRegex.test(email)) {
             this.setState({ validEmail: false });
         }
 
@@ -137,12 +137,11 @@ export default class LogIn extends Component {
                             showCheckmark={validPassword}
                         />
                     </ScrollView>
-                    <View style={styles.nextButton}>
-                        <NextArrowButton
-                            handleNextButton={this.handleNextButton}
-                            disabled={this.toggleNextButtonState()}
-                        />
-                    </View>
+
+                    <NextArrowButton
+                        handleNextButton={this.handleNextButton}
+                        disabled={this.toggleNextButtonState()}
+                    />
                     <View style={[styles.notificationWrapper, { marginTop: notificationMarginTop }]}>
                         <Notification
                             showNotification={showNotification}
@@ -183,11 +182,6 @@ const styles = StyleSheet.create({
         paddingRight: 30,
         paddingTop: 20,
         flex: 1,
-    },
-    nextButton: {
-        alignItems: 'flex-end',
-        marginRight: 20,
-        marginBottom: 20,
     },
     notificationWrapper: {
         position: 'absolute',
